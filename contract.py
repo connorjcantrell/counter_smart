@@ -45,9 +45,6 @@ def approval_program():
         ), deduct],
     )
 
-
-
-
     # Cond expression behaves like a switch statement, first to return true
     # This can be thought of as our router
     program = Cond(
@@ -58,7 +55,7 @@ def approval_program():
             [Txn.on_completion() == OnComplete.DeleteApplication, on_delete],
             [Txn.on_completion() == OnComplete.NoOp, on_noop]
     )
-    return Int(1)
+    return program
 
 
 def clear_state_program():
